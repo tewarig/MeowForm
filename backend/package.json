@@ -1,0 +1,13 @@
+{
+  "name": "meowForm",
+  "version": "1.0.0",
+  "description": "friction less forms",
+  "main": "index.js",
+  "repository": " https://github.com/tewarig/MeowForm.git",
+  "author": "tewarig",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
