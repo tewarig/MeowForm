@@ -9,4 +9,8 @@ connectDb();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+
+const responseRoute = require("./router/Response");
+app.use("/res",cros(),responseRoute);
 app.listen(port,()=>(console.log(`server have started on port ${port}`)))
