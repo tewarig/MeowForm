@@ -34,16 +34,16 @@ router.post("/:email&:formName",async(req,res)=>{
            console.log(`formName: ${formName}`);
           let testAccount = await nodemailer.createTestAccount();
           let transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
+            host: "smtp.zoho.in",
             port: 465,
             secure: true, // true for 465, false for other ports
             auth: {
-              user: "", // generated ethereal user
-              pass: "", // generated ethereal password
+              user: "blab al", // generated ethereal user
+              pass: "jfdnknf", // generated ethereal password
             },
           });
           let info = await transporter.sendMail({
-            from: '"Meow Forms 🐱 " <hello@gauravtewari.xyz>', // sender address
+            from: '"Meow Forms 🐱 " <hai@meowform.xyz>', // sender address
             to: `${email}`, // list of receivers
             subject: `New response in ${formName}`, // Subject line
             text: `${mailBody}`, // plain text body
