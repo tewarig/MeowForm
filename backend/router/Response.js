@@ -3,17 +3,20 @@ const router = express.Router();
 
 
 
-router.post("/:email",async(req,res)=>{
+router.post("/:email&:formName",async(req,res)=>{
    let email = req.params.email ;
-//    let fromName = req.params.e;
+   let formName = req.params.formName;
+   let data = req.body;
 
        try{
-           console.log(`email${email} + fromName${fromName}`);
-          console.log(req.body);
+           console.log(`email: ${email} `);
+           console.log(`formName: ${formName}`);
+          console.log(data);
           res.status(200).send("done") ;
       }
       catch(error){
-          console.log(error);
+          res.status(400).send(error);
+        //   console.log(error);
       }
 });
 module.exports = router;
