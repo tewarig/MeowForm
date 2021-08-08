@@ -1,13 +1,14 @@
 import React from 'react';
 import {Button, IconButton} from "@chakra-ui/button";
+import {Avatar }from '@chakra-ui/react';
 import { VStack,Flex ,Heading, Spacer , Box , Text  , Divider} from "@chakra-ui/layout";
 import {useMediaQuery} from "@chakra-ui/react";
 import {Tooltip } from "@chakra-ui/react";
 import  { FaSun , FaMoon, FaGithub, FaUser, FaList} from "react-icons/fa";
-import { FcList, FcSearch } from "react-icons/fc";
-import {BsSearch ,BsCalendarFill, BsPeopleFill, BsPerson, BsFillExclamationCircleFill, BsStar } from "react-icons/bs";
 import { useColorMode ,useColorModeValue } from '@chakra-ui/color-mode';
 import {Link} from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 import {
     Drawer,
@@ -17,7 +18,12 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
-    useDisclosure
+    useDisclosure,
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem
+
   } from "@chakra-ui/react";
 import MenuItems from './MenuItems';
 
@@ -31,15 +37,13 @@ function Navbar(props) {
     const [meow ,setMeow] = React.useState(false);
     const [signIn,setSignIn] = React.useState(false);
     const  formBackground = useColorModeValue("white.100","gray.900");
+    const { loginWithRedirect , logout  , isAuthenticated , user} = useAuth0();
+
 
     let flag = false;
     var setFlag  = () =>{
       setMeow(!meow);
       onClose();
-    }
-    var callFlag = () =>{
-      setMeow(!meow)
-      onOpen()
     }
   
     return (
@@ -82,10 +86,29 @@ function Navbar(props) {
              
                </Box>
              </Tooltip>
-                 <Tooltip label="Sign in / SignOut "> 
-                   <IconButton icon={<FaUser />} isRound="true"  onClick={callFlag}>
+             { !isAuthenticated && 
+                 <Tooltip label="Sign in / SignUp "> 
+                   <IconButton icon={<FaUser />} isRound="true"  onClick={()=>(loginWithRedirect())}>
                    </IconButton>
                  </Tooltip>
+              } 
+             
+             { isAuthenticated &&
+              <Menu>
+              {({ isOpen }) => (
+                <>
+                  <MenuButton isActive={isOpen} >
+                  <Avatar name={user.name} src={user.picture} />
+                  </MenuButton>
+                  <MenuList>
+                    <MenuItem>Hi , {user.name}</MenuItem>
+                    <MenuItem onClick={() => logout()}>Logout</MenuItem>
+                  </MenuList>
+                </>
+              )}
+            </Menu>
+             }
+
   
              </Flex>
          </VStack>
@@ -103,34 +126,7 @@ function Navbar(props) {
                         </Text>
                              </DrawerHeader>
                          <DrawerBody>
-                          {meow ?
-                          <>
-                          <Box mt="50%">
-                              <Link to="/SignIn">
-
-                           <Button ml="1%" mt="5%" width="100%" onClick={onClose} >
-
-                              
-                          <Text fontSize="xl" ml="4" >
-                             Sign In
-                             </Text>
-                           </Button>
-                           </Link>
-
-                                     <Link to="/SignUp">
-                                       <Button ml="1%" mt="5%" width="100%" onClick={onClose} >
-                                       
-                                        
-                                       <Text fontSize="xl" ml="4">
-                                       Sign Up
-                                       </Text>
-                                       </Button>
-                                       </Link>
-                                      
-                                      </Box>
-                                      
-                                      </> 
-                                      :
+                        
                                       <Box>
                                       {!check &&
                                       <Button ml="1%" mt="5%" width="100%" onClick={toggleColorMode} >
@@ -140,7 +136,7 @@ function Navbar(props) {
                                       {isDark ?  "Light Mode" : "Dark Mode"}
                                       </Text>
                                       </Button>
-                                        }
+                                     }
                                                                  
                                         
             
@@ -151,7 +147,7 @@ function Navbar(props) {
                           <Text>
                           </Text>
                            </Box>
-                      }
+                      
                          
                             
                             

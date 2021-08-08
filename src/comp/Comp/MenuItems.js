@@ -1,5 +1,5 @@
 import React from 'react';
-import MenuButton from './MenuButton';
+import MenuButtons from './MenuButtons';
 import {Button, IconButton} from "@chakra-ui/button";
 import { VStack,Flex ,Heading, Spacer , Box , Text  , Divider} from "@chakra-ui/layout";
 import {useMediaQuery} from "@chakra-ui/react";
@@ -26,7 +26,7 @@ function MenuItems({onClose}) {
         <div>
                 <Box>
                    
-                   <MenuButton link="/erjnvdfjf" icon={<BsSearch/>} Tittle="jdfkvdfvjkdv" click={onClose}></MenuButton>
+                   <MenuButtons link="/erjnvdfjf" icon={<BsSearch/>} Tittle="jdfkvdfvjkdv" click={onClose}></MenuButtons>
                                                    
 
                          

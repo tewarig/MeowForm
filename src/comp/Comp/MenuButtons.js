@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Button ,Text} from '@chakra-ui/react';
 
-function MenuButton({link,icon,Tittle,click}) {
+function MenuButtons({link,icon,Tittle,click}) {
     return (
         <div> 
      <Link to={link} onClick={click}>
@@ -19,4 +19,4 @@ function MenuButton({link,icon,Tittle,click}) {
     );
 }
 
-export default MenuButton;
+export default MenuButtons;
