@@ -26,7 +26,7 @@ function MenuItems({onClose}) {
         <div>
                 <Box>
                    
-                   <MenuButtons link="/erjnvdfjf" icon={<BsSearch/>} Tittle="jdfkvdfvjkdv" click={onClose}></MenuButtons>
+                   <MenuButtons link="/dashboard" icon={<BsSearch/>} Tittle="dashboard" click={onClose}></MenuButtons>
                                                    
 
                          

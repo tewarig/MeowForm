@@ -86,14 +86,7 @@ function Navbar(props) {
              
                </Box>
              </Tooltip>
-             { !isAuthenticated && 
-                 <Tooltip label="Sign in / SignUp "> 
-                   <IconButton icon={<FaUser />} isRound="true"  onClick={()=>(loginWithRedirect())}>
-                   </IconButton>
-                 </Tooltip>
-              } 
-             
-             { isAuthenticated &&
+             { user &&
               <Menu>
               {({ isOpen }) => (
                 <>
@@ -108,6 +101,13 @@ function Navbar(props) {
               )}
             </Menu>
              }
+             { !isAuthenticated && 
+                 <Tooltip label="Sign in / SignUp "> 
+                   <IconButton icon={<FaUser />} isRound="true"  onClick={()=>(loginWithRedirect())}>
+                   </IconButton>
+                 </Tooltip>
+              } 
+             
 
   
              </Flex>

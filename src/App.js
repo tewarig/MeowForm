@@ -8,14 +8,8 @@ import Index from './pages/Index';
 function App() {
   return (
     <ChakraProvider>
-          <Auth0Provider  
-          REACT_APP_CLIENTID    
-           domain={process.env.REACT_APP_AUTH_DOMAIN}
-        clientId={process.env.REACT_APP_CLIENTID}
-        redirectUri={window.location.origin}
-         >
+         
            <Index> </Index>
-          </Auth0Provider>
    </ChakraProvider>
   );
 }

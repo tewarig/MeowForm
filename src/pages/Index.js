@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
+import { Auth0Provider ,Auth0ProviderOptions } from "@auth0/auth0-react";
+
 import { 
     BrowserRouter as Router, 
     Link, 
@@ -13,6 +15,8 @@ import {
   
 import Navbar from '../comp/Comp/NavBar';
 import Home from './Home/Home';
+import Dashboard from './Dashboard/Dashboard';
+import Auth0ProviderWithHistory from '../Util/AuthWithHistory';
 
 
 function Index(props) {
@@ -20,27 +24,21 @@ function Index(props) {
     return (
         <>
         <Router>
+      <Auth0ProviderWithHistory>
+
             <Navbar></Navbar>
             <Route path="/" exact>
                 <Home></Home>
             </Route>
+            <Route path="/dashboard" exact>
+
+                <Dashboard>
+                </Dashboard>
+
+            </Route>
+      </Auth0ProviderWithHistory>
         </Router>
-          {/* <div>
-              <button onClick={() => loginWithRedirect()}>Log In</button>;            
-          </div>
-           <button onClick={() => logout({ returnTo: window.location.origin })}>
-           Log Out
-         </button>
-         {
-                 isAuthenticated && (
-                    <div>
-                      <img src={user.picture} alt={user.name} />
-                      <h2>{user.name}</h2>
-                      <p>{user.email}</p>
-                    </div>
-                  )
-              
-         } */}
+         
 
 
       </>
