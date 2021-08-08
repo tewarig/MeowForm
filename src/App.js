@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import react from 'react';
+import { ChakraProvider } from "@chakra-ui/react";
+import { Auth0Provider } from "@auth0/auth0-react";
+import Index from './pages/Index';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider>
+          <Auth0Provider  
+          REACT_APP_CLIENTID    
+           domain={process.env.REACT_APP_AUTH_DOMAIN}
+        clientId={process.env.REACT_APP_CLIENTID}
+        redirectUri={window.location.origin}
+         >
+           <Index> </Index>
+          </Auth0Provider>
+   </ChakraProvider>
   );
 }
 
