@@ -1,5 +1,5 @@
 import React from "react";
-import {Avatar, Box ,Card , Text ,Flex, Image ,useMediaQuery ,Spacer} from "@chakra-ui/react";
+import {Avatar, Box ,Card , Text ,Flex, Image ,useMediaQuery ,Spacer, Divider} from "@chakra-ui/react";
 import { useAuth0  ,withAuthenticationRequired} from "@auth0/auth0-react";
 import FullPage from "../../comp/Skeletons/FullPage";
 
@@ -10,15 +10,14 @@ const Dashboard = () => {
 
    
     return(
-        <>
+        <Box backgroundColor="whiteAlpha.100">
      
         
-        < Box padding="6" boxShadow="lg" align="center" > 
+        < Box padding="6" boxShadow="2xl" align="center" margin="2%"  borderRadius={check ?"full" : "0 "}> 
       
         <Flex align="center" flexDirection={check?"row":"column"}>
 
-        {/* <SkeletonCircle size="1" padding="5%" ml="5%" mb="5%" /> */}
-{/* /        <SkeletonCircle size="1" padding="5%" ml="25%" /> */}
+   
         <Flex>
 
         <Image src={user.picture} borderRadius="full"  /> 
@@ -62,12 +61,21 @@ const Dashboard = () => {
 
 
         </Box>
+       
+       <Box  padding="6" boxShadow="xl"  margin="2%"  borderRadius={check ?"25px" : "0 "}>
 
-        <Text>
+        <Text margin="5%"   bgGradient="linear(to-l, #ec9f05 ,#ff4e00)"  bgClip="text"  fontSize="3xl" >
             Forms
-        </Text>
+        <Divider  colorScheme="blackAlpha"></Divider>
 
-      </>
+        </Text>
+         <Flex margin="5%" justifyContent="space-between"  >
+             <Text> From Name</Text>
+             <Text> 50 Responses</Text>
+         </Flex>
+       </Box>
+
+      </Box>
     )
 }
 export default withAuthenticationRequired( Dashboard,{
