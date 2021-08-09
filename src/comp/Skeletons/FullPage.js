@@ -7,12 +7,23 @@ function FullPage(props) {
         <Flex>
         <SkeletonText mt="4" noOfLines={4} spacing="4" />
         </Flex>
-         <Box padding="6" boxShadow="lg" bg="white">           
-        <SkeletonCircle size="10" />
-        <SkeletonText mt="4" noOfLines={4} spacing="4" />
-        <SkeletonText mt="3" noOfLines={15} spacing="10" />
+        
+        < Box padding="6" boxShadow="lg" > 
+      
+        <Flex>
 
-      </Box>
+        <SkeletonCircle size="1" padding="5%" ml="5%" mb="5%" />
+        <SkeletonCircle size="1" padding="5%" ml="25%" />
+        <SkeletonCircle size="1" padding="5%" ml="25%" />
+
+        </Flex>
+
+
+
+
+
+        </Box>
+        <SkeletonText mt="3" noOfLines={15} spacing="10"  padding="5%"/>
         </div>
     );
 }
