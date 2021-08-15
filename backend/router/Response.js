@@ -27,6 +27,7 @@ router.post("/:email&:formName",async(req,res)=>{
        mailBody += `<b>${title[i]}</b> : <p>${entry[i]} <p>  <br/>`
    }
     //  console.log(mailBody);
+    console.log(req);
    let data = JSON.stringify(req.body);
 
        try{
@@ -38,8 +39,8 @@ router.post("/:email&:formName",async(req,res)=>{
             port: 465,
             secure: true, // true for 465, false for other ports
             auth: {
-              user: "blab al", // generated ethereal user
-              pass: "jfdnknf", // generated ethereal password
+              user: "hai@meowform.xyz", // generated ethereal user
+              pass: "", // generated ethereal password
             },
           });
           let info = await transporter.sendMail({
@@ -56,7 +57,7 @@ router.post("/:email&:formName",async(req,res)=>{
           // Preview only available when sending through an Ethereal account
           console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
-          res.status(200).send("done") ;
+          res.status(200).send("donee") ;
       }
       catch(error){
           res.status(400).send(error);
