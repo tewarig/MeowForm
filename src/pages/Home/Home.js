@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {Text ,Box, useColorModeValue,useMediaQuery , Image, Flex} from '@chakra-ui/react';
+import {Text ,Box, useColorModeValue,useMediaQuery , Image, Flex, Divider, LinkBox} from '@chakra-ui/react';
 import Typewriter from 'typewriter-effect';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -12,6 +12,7 @@ function Home(props) {
 
 
     return (
+      <>
         <div>
             
           <Box ml="5%">
@@ -25,7 +26,7 @@ function Home(props) {
             mt={check?"0%":"4%"}
                           
                 >
-            Functional Forms for 
+            Functional Forms Solution for 
 
             </Text>
             <Text  
@@ -58,14 +59,72 @@ function Home(props) {
               </Text>
               </Box>
 
+              <Image position={check ?"absolute":"static"} src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629015408/kitekat_ezvxgy.png"  width={check?"25%":"40%"} height={check ?"25%":"80%"} mt={check ? "-20%" :"5%"}  ml={check ? "-17%" : "28%"} transform={check?"rotate(60deg)":""} opacity={check ?"0.9" : "1"}></Image>
             </Box>
             <Box>
 
-          <Image position={check ?"absolute":"static"} src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629015408/kitekat_ezvxgy.png"  width={check?"35%":"40%"} height={check ?"70%":"90%"} mt={check ? "-20%" :"5%"}  ml={check ? "-12%" : "28%"} transform={check?"rotate(60deg)":""} opacity={check ?"0.9" : "1"}/>
             </Box>
+              
+              <Box mt="10%">
+               .
+              </Box>
 
 
              </div>
+            
+            
+             <div ml="25%" mt="10%">
+               .
+             </div>
+            
+              <Box ml="10%" mt="5%">
+                <Flex flexDirection={check?"row":"column-reverse"}>
+
+                <Image src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629017773/kitekat-19_1_nsknib.png" width="40%" height="30%"  ml={check?"0%":"25%"}/>
+                  
+                          <Text 
+                           align="center" 
+                           color={textColor}
+                           fontSize={check ?"5xl" :"3xl"}
+                           fontWeight="extrabold"
+                           mt={check?"7%":"4%"}
+                           ml={check?"":"-5%"}
+                                         
+                               >
+                         Make backend-less forms  with MeowForm and get 
+                         <Text  
+              bgGradient="linear(to-l, #ec9f05 ,#ff4e00)"
+               bgClip="text"
+               >Unlimited Responses </Text> in your inbox .                          
+               
+                           </Text>
+                </Flex>
+                <Flex flexDirection={check?"row":"column"} mt="5%">
+
+                   
+                   <Text 
+                    align="center" 
+                    color={textColor}
+                    fontSize={check ?"5xl" :"3xl"}
+                    fontWeight="extrabold"
+                    mt={check?"7%":"4%"}
+                    ml={check?"":"-5%"}
+                                  
+                        >
+                    Choose your fontend , Use our API to handle things for    
+                        <Text  
+                       bgGradient="linear(to-l, #ec9f05 ,#ff4e00)"
+                        bgClip="text"
+                        > Free </Text>
+                        </Text>
+                     <Image src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629029065/kitekat-8_ein5pc.png" width="40%" height="30%"  ml={check?"0%":"25%"}/>
+
+                  </Flex>
+                   </Box>
+            
+        </>
+
+
     );
 }
 
