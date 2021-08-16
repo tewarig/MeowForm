@@ -32,7 +32,7 @@ function Footer(props) {
 
                <Box ml="4%">
 
-                  <a href="https://twitter.com/oyeTewarig" target="_blank">
+                  <a href="https://twitter.com/oyeTewari" target="_blank">
                   🐦 @oyeTewari
                   </a>
               </Box>
