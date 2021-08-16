@@ -17,6 +17,7 @@ import Navbar from '../comp/Comp/NavBar';
 import Home from './Home/Home';
 import Dashboard from './Dashboard/Dashboard';
 import Auth0ProviderWithHistory from '../Util/AuthWithHistory';
+import Footer from '../comp/Comp/Footer';
 
 
 function Index(props) {
@@ -36,6 +37,7 @@ function Index(props) {
                 </Dashboard>
 
             </Route>
+            <Footer></Footer>
       </Auth0ProviderWithHistory>
         </Router>
          
