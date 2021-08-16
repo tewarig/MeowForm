@@ -59,7 +59,7 @@ function Home(props) {
               </Text>
               </Box>
 
-              <Image position={check ?"absolute":"static"} src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629015408/kitekat_ezvxgy.png"  width={check?"25%":"40%"} height={check ?"25%":"80%"} mt={check ? "-20%" :"5%"}  ml={check ? "-17%" : "28%"} transform={check?"rotate(60deg)":""} opacity={check ?"0.9" : "1"}></Image>
+              <Image position={check ?"absolute":"static"} src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629015408/kitekat_ezvxgy.png"  width={check?"25%":"40%"} height={check ?"15%":"80%"} mt={check ? "-20%" :"5%"}  ml={check ? "-17%" : "28%"} transform={check?"rotate(60deg)":""} opacity={check ?"0.9" : "1"}></Image>
             </Box>
             <Box>
 
