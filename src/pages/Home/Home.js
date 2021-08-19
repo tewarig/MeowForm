@@ -39,7 +39,7 @@ function Home(props) {
                >
             <Typewriter
               options={{
-                strings: ['React Developers', 'Futter Developers','Html developers', "Flutter Developers" ,"Android Developers"],
+                strings: ['React Developers', 'Flutter Developers','Html developers', "Android Developers"],
                 autoStart: true,
                 loop: true,
               }}
