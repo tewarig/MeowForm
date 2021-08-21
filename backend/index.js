@@ -2,6 +2,9 @@ if (process.env.NODE_ENV !== "production") require("dotenv").config();
 const express = require("express");
 const cros = require("cors");
 const connectDb = require('./connectDb');
+const data = require('./utility/getApiToken');
+
+
 
 const app = express();
 const port = process.env.PORT||4000;
@@ -9,7 +12,7 @@ connectDb();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
+data();
 
 const responseRoute = require("./router/Response");
 app.use("/res",cros(),responseRoute);
