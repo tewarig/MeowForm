@@ -2,7 +2,8 @@ if (process.env.NODE_ENV !== "production") require("dotenv").config();
 const express = require("express");
 const cros = require("cors");
 const connectDb = require('./connectDb');
-const data = require('./utility/getApiToken');
+const log = require("./utility/createUser");
+const Search = require("./utility/searchUser");
 
 
 
@@ -11,8 +12,9 @@ const port = process.env.PORT||4000;
 connectDb();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// log("gauravtewari111@gmail.com")
 
-data();
+
 
 const responseRoute = require("./router/Response");
 app.use("/res",cros(),responseRoute);
