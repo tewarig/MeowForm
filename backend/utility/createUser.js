@@ -7,7 +7,7 @@ const log = async(email) => {
      })
      try{
          const a1 = await newUser.save();
-         console.log('user created') 
+         return a1;
      }catch(error){
          console.log(error);
      }

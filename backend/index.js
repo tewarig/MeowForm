@@ -17,5 +17,10 @@ app.use(express.urlencoded({ extended: true }));
 
 
 const responseRoute = require("./router/Response");
+
 app.use("/res",cros(),responseRoute);
+
+const userRoute = require("./router/user");
+app.use("/user",cros(),userRoute);
+
 app.listen(port,()=>(console.log(`server have started on port ${port}`)))
