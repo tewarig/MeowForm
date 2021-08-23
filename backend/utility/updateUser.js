@@ -1,41 +1,47 @@
 const User = require("../Modles/user");
 
-const updateUser = async (id,formName,formTitle,FormData) =>{
-    console.log("id"+id+"\n formName:"+formName + "\n formTitle:"+formTitle + "\n FormData:"+ FormData); 
-    let newUserData = await User.findById(id);
-    if(newUserData.forms.length === 0){
+const updateUser = async (id,formName,formTitle,FormData ,formData) =>{
+    formData = JSON.parse(formData);
+    let date = new Date();
+    formData["_date"] = date;
 
-       let date = new Date();
-    
-        let newForm = {
-            formName,
-            formTitle,
-            FormData,
-            date
-        }
-        let array = [];
-         array.push(newForm);
-           newUserData.forms = array;
-        let finalData = await newUserData.save();
+    let newUserData = await User.findById(id);
+    if(newUserData["forms"].length === 0){
+        const newForm = {};
+        newForm["formName"] = formName ;
+        newForm["formData"] = [];
+        newForm["formData"].push(formData);
+        newForm["redirectUrl"] = "";
+        newUserData["forms"].push(newForm);
+        let final = await newUserData.save();
         
     }else{
-        let len = newUserData.forms.length;
         let index = -1;
-        for(let i=0;i<len;i++){
-              if(newUserData.forms[i].formName == formName){
-                  index = i;
-                  break;
-              }
+        for(let i=0;i<newUserData["forms"].length;i++){
+            if(newUserData.forms[i].formName === formName){
+             index = i;
+             break;
+            }
         }
-        if(index  != -1){
-            let array = newUserData.forms[index].FormData ;
-            array.push(FormData);
-            console.log(array);
-            newUserData.forms[index].formData = array;
-            newUserData.forms[index].formTitle = formTitle;
-            let finalData = await newUserData.save();
+        if(index != -1){
+            let array = newUserData.forms[index].formData;
+            array.push(formData);
+            newUserData.forms[index].formData = array ;
+            console.log(newUserData.forms[index].formData);
+            let final = await newUserData.save();
+
+        }else{
+            const newForm = {};
+            newForm["formName"] = formName ;
+            newForm["formData"] = [];
+            newForm["formData"].push(formData);
+            newForm["redirectUrl"] = "";
+            newUserData["forms"].push(newForm);
+            let final = await newUserData.save()
+           
         }
-    }
+    }   
+
   
 }
 module.exports = updateUser;

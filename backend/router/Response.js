@@ -13,12 +13,17 @@ router.post("/:email&:formName",async(req,res)=>{
  
 
    let email = req.params.email ;
-  let userData = await searchUser(email) ;
-  
+   let userData = await searchUser(email) ;
+   if(userData == ""){
+     res.send("You must signUp with that email to use MeowFroms");
+     return;
+   }  
 
-  console.log(userData[0].forms.length);
+  // console.log(userData[0].forms.length);
    let formName = req.params.formName;
    let temp = req.body;
+
+   let formData = JSON.stringify(temp);
    temp =  JSON.stringify(temp);  
    temp = temp.replace(/{/g," ");
    temp = temp.replace(/}/g," ");
@@ -39,7 +44,9 @@ router.post("/:email&:formName",async(req,res)=>{
    }
     //  console.log(mailBody);
    let data = JSON.stringify(req.body);
-     let meow = await updateUser(userData[0]._id,formName, title,entry);
+   
+
+     let meow = await updateUser(userData[0]._id,formName, title,entry,formData);
     res.send("yi");
 
  

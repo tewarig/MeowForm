@@ -10,10 +10,20 @@ const UserSchemea = new mongoose.Schema({
    responseCount:{
        type: Number
    },
-   forms:{
-       type: Array,
-       
-   }
+   forms:[ {
+       formName : {
+           type: String
+       },
+       formData : [
+           
+       ]          
+       ,
+       redirectUrl : {
+           type : String,
+       }
+    }
+
+   ]
 });
 
 module.exports = mongoose.model('User',UserSchemea);
