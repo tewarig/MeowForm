@@ -12,7 +12,6 @@ const port = process.env.PORT||4000;
 connectDb();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// log("gauravtewari111@gmail.com")
 
 
 
@@ -27,4 +26,7 @@ app.use("/user",cros(),userRoute);
 const urlRoute = require("./router/addUrl");
 app.use("/url",cros(),urlRoute);
 
+
+const addForm = require("./router/addForm");
+app.use("/addForm",cros(),addForm);
 app.listen(port,()=>(console.log(`server have started on port ${port}`)))
