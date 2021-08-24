@@ -1,13 +1,33 @@
-import React from "react";
-import {Avatar, Box ,Card , Text ,Flex, Image ,useMediaQuery ,Spacer, Divider} from "@chakra-ui/react";
+import React ,{useEffect}from "react";
+import {Avatar, Box ,Card , Text ,Flex, Image ,useMediaQuery ,Spacer, Divider, SkeletonText} from "@chakra-ui/react";
 import { useAuth0  ,withAuthenticationRequired} from "@auth0/auth0-react";
 import FullPage from "../../comp/Skeletons/FullPage";
+import axios from "axios";
 
 
 const Dashboard = () => {
     const{isLoading ,user} = useAuth0();
     const [check] = useMediaQuery("(min-width: 1025px)")
+    let userEmail = user.email ;
+    let apiKey = process.env.REACT_APP_APIKEY ;
+    let  apiUrl = process.env.REACT_APP_HOSTURL ;
+    const [data,setData] = React.useState();
+    const getData = async() => {
 
+        let temp = await axios.get(apiUrl+'user/' + userEmail + '&' + apiKey);
+        setData(temp.data[0]);
+    }
+    useEffect(()=>{
+        getData();
+        // console.log(apiUrl+'user/' + userEmail + '&' + apiKey);
+    },[]);
+    console.log(data);
+    let responses = 0;
+    if(data){
+   for(let i=0;i<data.forms.length ;i++){
+     responses += data.forms[i].formData.length;
+   }
+    }
    
     return(
         <Box backgroundColor="whiteAlpha.100">
@@ -34,7 +54,8 @@ const Dashboard = () => {
 
         <Text bgGradient="linear(to-l, #ec9f05 ,#ff4e00)"  bgClip="text"
               fontSize="3xl" >
-              40
+             { data ?  responses : <SkeletonText></SkeletonText> } 
+
         </Text>
         <Text>
            Responses
@@ -44,7 +65,8 @@ const Dashboard = () => {
 
             <Text bgGradient="linear(to-l, #ec9f05 ,#ff4e00)"  bgClip="text"
                   fontSize="3xl" >
-                  5
+
+                      { data ? data.forms.length : <SkeletonText></SkeletonText> } 
             </Text>
             <Text>
               Forms
