@@ -3,6 +3,7 @@ import {Avatar, Box ,Card , Text ,Flex, Image ,useMediaQuery ,Spacer, Divider, S
 import { useAuth0  ,withAuthenticationRequired} from "@auth0/auth0-react";
 import FullPage from "../../comp/Skeletons/FullPage";
 import axios from "axios";
+import FormCard from "../../comp/Comp/FormCard";
 
 
 const Dashboard = () => {
@@ -21,7 +22,7 @@ const Dashboard = () => {
         getData();
         // console.log(apiUrl+'user/' + userEmail + '&' + apiKey);
     },[]);
-    getData();
+    // getData();
     let responses = 0;
     if(data){
    for(let i=0;i<data.forms.length ;i++){
@@ -101,11 +102,7 @@ const Dashboard = () => {
         {
         data ?
          data.forms.map(x => 
-         <Flex margin="5%" justifyContent="space-between"  >
-             <Text> {x.formName}</Text>
-             <Text> {x.formData.length} Responses</Text>
-             <Button colorScheme="orange"> View</Button>
-         </Flex>)
+            <FormCard  formName={x.formName} responses={x.formData.length} formData={x.formData}></FormCard>)
          :
          <>
           <SkeletonText mt="3" noOfLines={1}  ></SkeletonText>  
@@ -122,7 +119,6 @@ const Dashboard = () => {
 
       }
            
-
          
        </Box>
 
