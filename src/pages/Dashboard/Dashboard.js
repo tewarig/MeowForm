@@ -1,5 +1,5 @@
 import React ,{useEffect}from "react";
-import {Avatar, Box ,Card , Text ,Flex, Image ,useMediaQuery ,Spacer, Divider, SkeletonText} from "@chakra-ui/react";
+import {Avatar, Box ,Card , Text ,Flex, Image ,useMediaQuery ,Spacer, Divider, SkeletonText , Button} from "@chakra-ui/react";
 import { useAuth0  ,withAuthenticationRequired} from "@auth0/auth0-react";
 import FullPage from "../../comp/Skeletons/FullPage";
 import axios from "axios";
@@ -21,7 +21,7 @@ const Dashboard = () => {
         getData();
         // console.log(apiUrl+'user/' + userEmail + '&' + apiKey);
     },[]);
-    console.log(data);
+    getData();
     let responses = 0;
     if(data){
    for(let i=0;i<data.forms.length ;i++){
@@ -42,7 +42,7 @@ const Dashboard = () => {
 
         <Image src={user.picture} borderRadius="full"  /> 
         <Text  mt="10%"  ml="20px"  bgGradient="linear(to-l, #ec9f05 ,#ff4e00)"  bgClip="text"
-              fontSize="3xl" >
+              fontSize={check ? "3xl" : "xl"} >
             {user.name}
         </Text>
                   </Flex>
@@ -68,9 +68,11 @@ const Dashboard = () => {
 
                       { data ? data.forms.length : <SkeletonText></SkeletonText> } 
             </Text>
+
             <Text>
               Forms
             </Text>
+
             </Box>
           
                                 
@@ -85,16 +87,43 @@ const Dashboard = () => {
         </Box>
        
        <Box  padding="6" boxShadow="xl"  margin="2%"  borderRadius={check ?"25px" : "0 "}>
+         <Flex justifyContent="space-between">
 
         <Text margin="5%"   bgGradient="linear(to-l, #ec9f05 ,#ff4e00)"  bgClip="text"  fontSize="3xl" >
             Forms
-        <Divider  colorScheme="blackAlpha"></Divider>
 
         </Text>
-         <Flex margin="5%" justifyContent="space-between"  >
-             <Text> From Name</Text>
-             <Text> 50 Responses</Text>
+            <Button margin="5%" colorScheme="orange">
+                New form
+            </Button>
          </Flex>
+        <Divider margin="2%" colorScheme="blackAlpha"></Divider>
+        {
+        data ?
+         data.forms.map(x => 
+         <Flex margin="5%" justifyContent="space-between"  >
+             <Text> {x.formName}</Text>
+             <Text> {x.formData.length} Responses</Text>
+             <Button colorScheme="orange"> View</Button>
+         </Flex>)
+         :
+         <>
+          <SkeletonText mt="3" noOfLines={1}  ></SkeletonText>  
+          <SkeletonText mt="3" noOfLines={1}  ></SkeletonText>  
+
+         </>
+        
+
+        }
+          
+      {data && data.forms.length == 0 ? <>
+       <Image src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629867315/kitekat-3_dlccdn.png" width="25%" height="25%" ml="38%" />
+      <Text align="center">You haven't created a form Yet </Text></> : <> </>
+
+      }
+           
+
+         
        </Box>
 
       </Box>
