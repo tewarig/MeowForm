@@ -1,14 +1,28 @@
 import React ,{useEffect}from "react";
-import {Avatar, Box ,Card , Text ,Flex, Image ,useMediaQuery ,Spacer, Divider, SkeletonText , Button} from "@chakra-ui/react";
+import {Avatar, Box ,Card , Text ,Flex, Image ,useMediaQuery ,Spacer, Divider, SkeletonText , Button, Input} from "@chakra-ui/react";
 import { useAuth0  ,withAuthenticationRequired} from "@auth0/auth0-react";
 import FullPage from "../../comp/Skeletons/FullPage";
 import axios from "axios";
 import FormCard from "../../comp/Comp/FormCard";
+import {
+    Drawer,
+    DrawerBody,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerOverlay,
+    DrawerContent,
+    DrawerCloseButton,
+    useDisclosure
+  } from "@chakra-ui/react";
+  import toast ,{Toaster} from "react-hot-toast";
+
 
 
 const Dashboard = () => {
     const{isLoading ,user} = useAuth0();
     const [check] = useMediaQuery("(min-width: 1025px)")
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const [formName,setFormName] = React.useState();
     let userEmail = user.email ;
     let apiKey = process.env.REACT_APP_APIKEY ;
     let  apiUrl = process.env.REACT_APP_HOSTURL ;
@@ -20,15 +34,47 @@ const Dashboard = () => {
     }
     useEffect(()=>{
         getData();
-        // console.log(apiUrl+'user/' + userEmail + '&' + apiKey);
     },[]);
-    // getData();
     let responses = 0;
     if(data){
    for(let i=0;i<data.forms.length ;i++){
      responses += data.forms[i].formData.length;
    }
     }
+    const  postApiData = async() => {
+        let temp = await axios.post(apiUrl + 'addForm/' + apiKey  ,{
+            "email": user.email,
+            "formName": formName,
+            "url":""
+         });
+        setData();
+        getData();
+       
+    }
+    const addNewForm = () => {
+         if(formName == "" ){
+            toast.error('Form is empty😉');
+
+         }else{    
+            //  console.log(data.forms[0].formName);
+            let isCopy  = false;
+            for(let i=0;i<data.forms.length;i++){
+                if(data.forms[i].formName == formName){
+                    isCopy = true;
+                }
+
+            }     
+            if(isCopy){
+                toast.error('form with such name already exits ');
+            }else{
+                postApiData();
+                onClose();
+                toast.success('Form Have beeen added 😉');
+
+            }
+        }
+    }
+ 
    
     return(
         <Box backgroundColor="whiteAlpha.100">
@@ -94,7 +140,7 @@ const Dashboard = () => {
             Forms
 
         </Text>
-            <Button margin="5%" colorScheme="orange">
+            <Button margin="5%" colorScheme="orange" onClick={onOpen}>
                 New form
             </Button>
          </Flex>
@@ -121,6 +167,49 @@ const Dashboard = () => {
            
          
        </Box>
+       <Drawer onClose={onClose} isOpen={isOpen} size={check ? "xs" :"xs"}>
+                     <DrawerOverlay />
+                     <DrawerContent>
+                       <DrawerHeader align="center"> 
+
+                           <Text
+                           margin="1%"
+                           fontWeight="extraBold"
+                           fontSize="3xl"
+                           bgGradient="linear(to-l, #ec9f05 ,#ff4e00)"
+                           bgClip="text"
+                           
+                           >
+
+                            Add Form
+                           </Text>
+                           <Image src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629884425/kitekat-17_ipr2uy.png" />
+                       <Text
+                        
+                       >
+      
+                        </Text>
+                           </DrawerHeader>
+                       <DrawerBody>
+                       
+                        <Box>
+                          <Flex>
+
+                           <Input onChange={(e)=>setFormName(e.target.value)} placeholder="Form Name" />
+                           <Button ml="0.5%" colorScheme="orange" onClick={addNewForm}> > </Button>
+                          </Flex>
+
+                           
+                        </Box>
+                        <Box>
+                      
+                          
+                        </Box>
+                       </DrawerBody>
+                     </DrawerContent>
+                   </Drawer>
+
+                   <Toaster/>
 
       </Box>
     )
