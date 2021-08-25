@@ -15,6 +15,7 @@ import {
     useDisclosure
   } from "@chakra-ui/react";
   import toast ,{Toaster} from "react-hot-toast";
+import { ClassNames } from "@emotion/react";
 
 
 
@@ -31,9 +32,13 @@ const Dashboard = () => {
 
         let temp = await axios.get(apiUrl+'user/' + userEmail + '&' + apiKey);
         setData(temp.data[0]);
+         console.log(data);
     }
     useEffect(()=>{
         getData();
+        if(data === undefined){
+            getData();
+        }
     },[]);
     let responses = 0;
     if(data){
