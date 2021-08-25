@@ -46,13 +46,14 @@ const Dashboard = () => {
      responses += data.forms[i].formData.length;
    }
     }
+
     const  postApiData = async() => {
+        
         let temp = await axios.post(apiUrl + 'addForm/' + apiKey  ,{
             "email": user.email,
             "formName": formName,
             "url":""
          });
-        setData();
         getData();
        
     }
@@ -72,9 +73,14 @@ const Dashboard = () => {
             if(isCopy){
                 toast.error('form with such name already exits ');
             }else{
-                postApiData();
+                
+                    
+                    postApiData()
+                setTimeout(()=>(getData()),2000);
                 onClose();
-                toast.success('Form Have beeen added 😉');
+                setTimeout(()=>(toast.success('Form Have beeen added 😉')
+                ),2000);
+
 
             }
         }
