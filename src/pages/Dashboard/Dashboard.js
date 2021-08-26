@@ -159,7 +159,7 @@ const Dashboard = () => {
         {
         data ?
          data.forms.map(x => 
-            <FormCard  formName={x.formName} responses={x.formData.length} formData={x.formData}></FormCard>)
+            <FormCard  formName={x.formName} responses={x.formData.length} formData={x.formData} redirectUrl={x.redirectUrl} email={userEmail}></FormCard>)
          :
          <>
           <SkeletonText mt="3" noOfLines={1}  ></SkeletonText>  
