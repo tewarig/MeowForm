@@ -1,9 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const nodemailer = require("nodemailer");
 var axios = require("axios").default;
 const searchUser = require("../utility/searchUser");
 const updateUser = require("../utility/updateUser");
+const mailgun = require("mailgun-js");
+const DOMAIN = process.env.Domain ;
+const api_key = process.env.API_MONEY;
+const mg = mailgun({apiKey: api_key, domain: DOMAIN});
 
 
 
@@ -47,41 +50,24 @@ router.post("/:email&:formName",async(req,res)=>{
    
 
      let meow = await updateUser(userData[0]._id,formName, title,entry,formData);
-    res.send("yi");
+    res.send("y");
+
+   mg.messages().send( {  
+    from: 'Cheese 🐱<cheese@meowform.xyz>',
+    to: email,
+    subject: `You have got a new Response in ${formName} Meow!  UvU `,
+    html: `${mailBody}     <br/> <a href="https://www.buymeacoffee.com/tewarig"> buy Cheese some cat food 🐟 </a>`
+  } , function (error, body) {
+      
+    if(error){
+      console.log(error);
+    }else{
+      console.log(body);
+    }
+    });
+    
 
  
-      //  try{
-      //      console.log(`email: ${email} `);
-      //      console.log(`formName: ${formName}`);
-      //     let testAccount = await nodemailer.createTestAccount();
-      //     let transporter = nodemailer.createTransport({
-      //       host: "smtp.zoho.in",
-      //       port: 465,
-      //       secure: true, // true for 465, false for other ports
-      //       auth: {
-      //         user: "hai@meowform.xyz", // generated ethereal user
-      //         pass: "", // generated ethereal password
-      //       },
-      //     });
-      //     let info = await transporter.sendMail({
-      //       from: '"Meow Forms 🐱 " <hai@meowform.xyz>', // sender address
-      //       to: `${email}`, // list of receivers
-      //       subject: `New response in ${formName}`, // Subject line
-      //       text: `${mailBody}`, // plain text body
-      //       html: `${mailBody}`, // html body
-      //     });
-        
-      //     console.log("Message sent: %s", info.messageId);
-      //     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-        
-      //     // Preview only available when sending through an Ethereal account
-      //     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
-      //     res.status(200).send("donee") ;
-      // }
-      // catch(error){
-      //     res.status(400).send(error);
-      //   //   console.log(error);
-      // }
 });
 module.exports = router;
