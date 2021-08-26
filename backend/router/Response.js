@@ -8,6 +8,10 @@ const DOMAIN = process.env.Domain ;
 const api_key = process.env.API_MONEY;
 const mg = mailgun({apiKey: api_key, domain: DOMAIN});
 
+const app = express(); 
+
+app.set('view engine','ejs');
+app.set('views',  './views'); 
 
 
 router.post("/:email&:formName",async(req,res)=>{
@@ -50,21 +54,21 @@ router.post("/:email&:formName",async(req,res)=>{
    
 
      let meow = await updateUser(userData[0]._id,formName, title,entry,formData);
-    res.send("y");
+    res.sendFile("./views/submited.html" ,{root :__dirname });
 
-   mg.messages().send( {  
-    from: 'Cheese 🐱<cheese@meowform.xyz>',
-    to: email,
-    subject: `You have got a new Response in ${formName} Meow!  UvU `,
-    html: `${mailBody}     <br/> <a href="https://www.buymeacoffee.com/tewarig"> buy Cheese some cat food 🐟 </a>`
-  } , function (error, body) {
+  //  mg.messages().send( {  
+  //   from: 'Cheese 🐱<cheese@meowform.xyz>',
+  //   to: email,
+  //   subject: `You have got a new Response in ${formName} Meow!  UvU `,
+  //   html: `${mailBody}     <br/> <a href="https://www.buymeacoffee.com/tewarig"> buy Cheese some cat food 🐟 </a>`
+  // } , function (error, body) {
       
-    if(error){
-      console.log(error);
-    }else{
-      console.log(body);
-    }
-    });
+  //   if(error){
+  //     console.log(error);
+  //   }else{
+  //     console.log(body);
+  //   }
+  //   });
     
 
  

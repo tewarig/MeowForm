@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 const responseRoute = require("./router/Response");
-app.use("/res",cros(),responseRoute);
+app.use("/page",cros(),responseRoute);
 
 
 const userRoute = require("./router/user");
