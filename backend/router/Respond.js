@@ -54,7 +54,7 @@ router.post("/:email&:formName",async(req,res)=>{
    
 
      let meow = await updateUser(userData[0]._id,formName, title,entry,formData);
-    res.sendFile("./views/submited.html" ,{root :__dirname });
+    res.status(200).json({msg : 'Response Saved'});
 
    mg.messages().send( {  
     from: 'Cheese 🐱<cheese@meowform.xyz>',

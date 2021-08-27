@@ -27,6 +27,9 @@ app.use("/user",cros(),userRoute);
 const urlRoute = require("./router/addUrl");
 app.use("/url",cros(),urlRoute);
 
+const responsedRoute = require("./router/Respond");
+app.use("/form",cros(),responsedRoute);
+
 
 const addForm = require("./router/addForm");
 app.use("/addForm",cros(),addForm);
