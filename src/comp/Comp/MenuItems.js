@@ -6,9 +6,10 @@ import {useMediaQuery} from "@chakra-ui/react";
 import {Tooltip } from "@chakra-ui/react";
 import  { FaSun , FaMoon, FaGithub, FaUser} from "react-icons/fa";
 import { FcList, FcSearch } from "react-icons/fc";
-import {BsSearch ,BsCalendarFill, BsPeopleFill, BsPerson, BsFillExclamationCircleFill, BsStar } from "react-icons/bs";
+import {BsSearch ,BsCalendarFill, BsPeopleFill, BsPerson, BsFillExclamationCircleFill, BsStar  ,BsMenu} from "react-icons/bs";
 import { useColorMode ,useColorModeValue } from '@chakra-ui/color-mode';
 import {Link} from "react-router-dom";
+import {MdRemoveFromQueue , MdFindInPage , MdStar, MdPeople} from "react-icons/md";
 
 import {
     Drawer,
@@ -26,9 +27,33 @@ function MenuItems({onClose}) {
         <div>
                 <Box>
                    
-                   <MenuButtons link="/dashboard" icon={<BsSearch/>} Tittle="dashboard" click={onClose}></MenuButtons>
-                                                   
+                   <MenuButtons link="/dashboard" icon={<MdRemoveFromQueue/>} Tittle="dashboard" click={onClose}></MenuButtons>
+                           
+                   <a href="https://docs.meowform.xyz/docs/intro" target="_blank">
+                        <Button ml="1%" mt="5%" width="100%" onClick={onClose}>                            
+                          <MdFindInPage/>
+                            <Text fontSize="xl" ml="4">
+                            Docs
+                            </Text>
+                        </Button>                            
+                            </a>
+                      <a href="https://github.com/tewarig/meowForm" target="_blank">
+                        <Button ml="1%" mt="5%" width="100%" onClick={onClose}>                            
+                          <MdStar/>
+                            <Text fontSize="xl" ml="4">
+                            Star on github
+                            </Text>
+                        </Button>                            
+                            </a>
 
+                      <a href="https://github.com/tewarig/meowForm" target="_blank">
+                        <Button ml="1%" mt="5%" width="100%" onClick={onClose}>                            
+                          <MdPeople/>
+                            <Text fontSize="xl" ml="4">
+                           Support MeowForm
+                            </Text>
+                        </Button>                            
+                            </a>
                          
                 </Box>
         </div>
