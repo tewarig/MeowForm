@@ -37,7 +37,7 @@ const Dashboard = () => {
     useEffect(()=>{
         getData();
         if(data === undefined){
-            getData();
+        setTimeout(()=>(getData()),2500);
         }
     },[]);
     let responses = 0;
