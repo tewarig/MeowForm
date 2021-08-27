@@ -28,20 +28,32 @@ function Footer(props) {
                   </Box>
                 
                </Flex>
-               <Flex margin="2%"  color="#fff" align="center" ml={check ?"44%":"33%"}>
+               <Flex   flexDirection="column-reverse" color="#fff" align="center" ml={check ?"0%":"0%"}>
+               <a href="https://icons8.com/" target="_blank">
+                    <Text>
+                    Icons by Icons8
+                    </Text>   
+                  </a>
+               <Box margin="2%">
 
-               <Box ml="4%">
-
-                  <a href="https://twitter.com/oyeTewari" target="_blank">
+                  <a href="https://twitter.com/oyeTewari"  target="_blank">
                   🐦 @oyeTewari
                   </a>
               </Box>
               </Flex>
+              <Flex>
+              <Box>
+                 
+              </Box>
+              </Flex>
+
                <Flex>
 
                    
                </Flex>
+
              </Box>
+             
 
          </Box>
             
