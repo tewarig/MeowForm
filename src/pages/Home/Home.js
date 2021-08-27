@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {Text ,Box, useColorModeValue,useMediaQuery , Image, Flex, Divider, LinkBox} from '@chakra-ui/react';
+import {Text ,Box, useColorModeValue,useMediaQuery , Image, Flex, Divider, LinkBox , Button} from '@chakra-ui/react';
 import Typewriter from 'typewriter-effect';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -40,8 +40,8 @@ function Home(props) {
             <Typewriter
               options={{
                 strings: ['React Developers', 'Flutter Developers','Html developers', "Android Developers"],
-                autoStart: true,
-                loop: true,
+                autoStart: true ,
+                loop: true
               }}
             />
 
@@ -50,7 +50,7 @@ function Home(props) {
             <Text color="#fff" padding="5%">
 
             <Typewriter
-              options={{
+                          options={{
                 strings: [`<Form action="https://server.meowform.xyz/YourEmail method="post"`],
                 autoStart: true,
                 loop: true,
@@ -58,6 +58,21 @@ function Home(props) {
               />
               </Text>
               </Box>
+                 <Flex flexDirection="row" ml={check ? "40%":"23%"}>
+                      <Box margin="1%">
+                        <a href="https://docs.meowform.xyz/docs/intro" target="_blank">
+
+                        <Button  margin="1%"> View docs</Button>
+                        </a>
+                      </Box>
+                     <Box margin="1%">
+                       
+    
+                     <Link to="/dashboard" >
+                       <Button colorScheme="orange" > Try it</Button>
+                     </Link>
+                     </Box>
+                  </Flex> 
 
               <Image position={check ?"absolute":"static"} src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629015408/kitekat_ezvxgy.png"  width={check?"25%":"40%"} height={check ?"15%":"80%"} mt={check ? "-20%" :"5%"}  ml={check ? "-17%" : "28%"} transform={check?"rotate(60deg)":""} opacity={check ?"0.9" : "1"}></Image>
             </Box>
