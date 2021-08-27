@@ -118,12 +118,12 @@ function FormCard({formName , responses ,formData ,redirectUrl ,email }) {
                             
                     </>
                      }   
-                     <Flex>
+                     {/* <Flex>
                          <Text margin="5%">Redirect Url </Text>
                          <Text margin="5%"> { redirectUrl } </Text>
-                     </Flex> 
+                     </Flex>  */}
                      {/* { edit && */}
-                    <Flex>
+                    {/* <Flex>
                       <Input placeholder={redirectUrl} isDisabled={!edit}   value={url} onChange={ (e)=>(setUrl(e.target.value))}
                       />  
                      {edit === false ?
@@ -133,9 +133,9 @@ function FormCard({formName , responses ,formData ,redirectUrl ,email }) {
                        :
                        <Button  onClick={()=>(checkUrl())}> Save</Button>
                      }
-                    </Flex>
+                    </Flex> */}
                      {/* }  */}
-                           <Text> * you one need Redirect url if you are just using html css , check docs here </Text> 
+                           {/* <Text> * you one need Redirect url if you are just using html css , check docs here </Text>  */}
                         </Box>
                         <Box>
                       
