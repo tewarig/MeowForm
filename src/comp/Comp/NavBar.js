@@ -55,7 +55,7 @@ function Navbar(props) {
            <Flex w="100%">
             <Link to="/">
             <Text ml="8"  bgGradient="linear(to-l, #ec9f05 ,#ff4e00)" bgClip="text"
-              fontSize="3xl"
+              fontSize={check ?"3xl":"xl"}
               fontWeight="extrabold"
               z-index={5}
               >
