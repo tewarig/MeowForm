@@ -17,7 +17,7 @@ function Footer(props) {
                fontWeight="extrabold">
                    Meow Forms <Text color="#fff"> 🐱</Text>
                </Text>
-               <Flex margin="2%"  color="#fff" align="center" ml={check ?"39%":"6%"}>
+               <Flex margin="2%"  color="#fff" align="center" ml={check ?"39%":"12%"}>
 
                    
                   <Box ml="4%">
@@ -39,6 +39,12 @@ function Footer(props) {
                   <a href="https://twitter.com/oyeTewari"  target="_blank">
                   🐦 @oyeTewari
                   </a>
+              </Box>
+              <Box margin="2%">
+
+               
+                  All mails are delivered by  🧀 the 🐈
+                  
               </Box>
               </Flex>
               <Flex>
