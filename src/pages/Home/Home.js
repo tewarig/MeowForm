@@ -62,7 +62,7 @@ function Home(props) {
                       <Box margin="1%">
                         <a href="https://docs.meowform.xyz/docs/intro" target="_blank">
 
-                        <Button  margin="1%"> View docs</Button>
+                        <Button  margin="1%" > View docs</Button>
                         </a>
                       </Box>
                      <Box margin="1%">
@@ -74,7 +74,7 @@ function Home(props) {
                      </Box>
                   </Flex> 
 
-              <Image  lazyLoad={true} position={check ?"absolute":"static"} src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629015408/kitekat_ezvxgy.png"  width={check?"25%":"40%"} height={check ?"15%":"80%"} mt={check ? "-20%" :"5%"}  ml={check ? "-17%" : "28%"} transform={check?"rotate(60deg)":""} opacity={check ?"0.9" : "1"}></Image>
+              <Image  lazyLoad={true} position={check ?"absolute":"static"} src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629015408/kitekat_ezvxgy.png"  width={check?"30%":"40%"} height={check ?"15%":"80%"} mt={check ? "-20%" :"5%"}  ml={check ? "-20%" : "28%"} transform={check?"rotate(60deg)":""} opacity={check ?"0.9" : "1"}></Image>
             </Box>
             <Box>
 
@@ -135,7 +135,30 @@ function Home(props) {
                      <Image src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629029065/kitekat-8_ein5pc.png" width="40%" height="30%"  ml={check?"0%":"25%"}/>
 
                   </Flex>
+                  <Flex flexDirection={check?"row-reverse":"column"} mt="5%">
+                   
+                  <Text 
+                    align="center" 
+                    color={textColor}
+                    fontSize={check ?"5xl" :"3xl"}
+                    fontWeight="extrabold"
+                    mt={check?"7%":"4%"}
+                    ml={check?"":"-5%"}
+                                  
+                        >
+                    Missed a response ? don't worry view all responses in out dashboard   
+                        <Text  
+                       bgGradient="linear(to-l, #ec9f05 ,#ff4e00)"
+                        bgClip="text"
+                        >  </Text>
+                        </Text>
+                     <Image src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1630156150/kitekat-2_kzxgrr.png" width="40%" height="30%"  ml={check?"0%":"25%"}/>
+
+                  
+                  </Flex>
                    </Box>
+                   <Box margin="10%"></Box>
+                   
             
         </>
 
