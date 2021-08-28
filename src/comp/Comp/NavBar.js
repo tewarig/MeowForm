@@ -103,8 +103,21 @@ function Navbar(props) {
              }
              { !isAuthenticated && 
                  <Tooltip label="Sign in / SignUp "> 
-                   <IconButton icon={<FaUser />} isRound="true"  onClick={()=>(loginWithRedirect())}>
-                   </IconButton>
+                  <Menu>
+              {({ isOpen }) => (
+                <>
+                  <MenuButton isActive={isOpen} >
+                  <Avatar   />
+
+                  </MenuButton>
+                  <MenuList>
+                    <MenuItem  onClick={()=>(loginWithRedirect()) }>Sign In/Sign Up </MenuItem>
+                  </MenuList>
+                </>
+              )}
+            </Menu>
+                   {/* <IconButton icon={<FaUser />} isRound="true"  onClick={()=>(loginWithRedirect())}>
+                   </IconButton> */}
                  </Tooltip>
               } 
              

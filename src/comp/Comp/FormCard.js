@@ -77,7 +77,7 @@ function FormCard({formName , responses ,formData ,redirectUrl ,email }) {
                       <Button colorScheme="orange" onClick={onOpen}> View</Button>
                    </Flex>
  
-                          {console.log(formData)}
+                          {/* {console.log(formData)} */}
                    </Box>
                    <Drawer onClose={onClose} isOpen={isOpen} size={check ? "xl" :"xs"}>
                      <DrawerOverlay />
