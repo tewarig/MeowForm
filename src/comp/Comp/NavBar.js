@@ -95,6 +95,10 @@ function Navbar(props) {
                   </MenuButton>
                   <MenuList>
                     <MenuItem>Hi , {user.name}</MenuItem>
+                    <Link to="/dashboard">
+                    <MenuItem> Dashboard </MenuItem>
+                    </Link>
+
                     <MenuItem onClick={() => logout()}>Logout</MenuItem>
                   </MenuList>
                 </>
