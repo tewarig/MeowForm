@@ -39,7 +39,7 @@ function Home(props) {
                >
             <Typewriter
               options={{
-                strings: ['React Developers', 'Flutter Developers','Html developers', "Android Developers"],
+                strings: ['React ', 'Flutter ','Html ', "React Native" , "Vue","Angular"],
                 autoStart: true ,
                 loop: true
               }}
@@ -51,7 +51,7 @@ function Home(props) {
 
             <Typewriter
                           options={{
-                strings: [`<Form action="https://server.meowform.xyz/YourEmail method="post"`],
+                strings: [`<form action="https://server.meowform.xyz/YourEmail&FormName method="post"`],
                 autoStart: true,
                 loop: true,
               }}
