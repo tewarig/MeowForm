@@ -132,7 +132,7 @@ function Home(props) {
                         bgClip="text"
                         > Free </Text>
                         </Text>
-                     <Image src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629029065/kitekat-8_ein5pc.png" width="40%" height="30%"  ml={check?"0%":"25%"}/>
+                     <Image src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629029065/kitekat-8_ein5pc.png" width="15%" height="16%"  ml={check?"0%":"25%"}/>
 
                   </Flex>
                   <Flex flexDirection={check?"row-reverse":"column"} mt="5%">
@@ -158,6 +158,11 @@ function Home(props) {
                   </Flex>
                    </Box>
                    <Box margin="10%"></Box>
+                   <Box margin={check ?"5%":"1%"} padding={check?"5%":"1%"} alignContent="center" align="center">
+
+                   <iframe width={check ? "640" :"300"} height={check ?"360":"200"} align="center" src="https://www.loom.com/embed/c8cdc167f9b0405ca37e0b8a6f7ffe13" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen="true"></iframe>
+                    <h1 margin="15%"> Meow Form in action</h1>
+                   </Box>
                    
             
         </>
