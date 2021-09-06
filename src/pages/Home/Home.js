@@ -74,7 +74,7 @@ function Home(props) {
                      </Box>
                   </Flex> 
 
-              <Image  lazyLoad={true} position={check ?"absolute":"static"} src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629015408/kitekat_ezvxgy.png"  width={check?"30%":"40%"} height={check ?"15%":"80%"} mt={check ? "-20%" :"5%"}  ml={check ? "-20%" : "28%"} transform={check?"rotate(60deg)":""} opacity={check ?"0.9" : "1"}></Image>
+              <Image  lazyLoad={true} position={check ?"absolute":"static"} src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629015408/kitekat_ezvxgy.png"  width={check?"30%":"40%"} height={check ?"13%":"80%"} mt={check ? "-20%" :"5%"}  ml={check ? "-20%" : "28%"} transform={check?"rotate(60deg)":""} opacity={check ?"0.9" : "1"}></Image>
             </Box>
             <Box>
 
@@ -132,7 +132,7 @@ function Home(props) {
                         bgClip="text"
                         > Free </Text>
                         </Text>
-                     <Image src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629029065/kitekat-8_ein5pc.png" width="15%" height="16%"  ml={check?"0%":"25%"}/>
+                     <Image src="https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629029065/kitekat-8_ein5pc.png" width="40%" height="30%"  ml={check?"0%":"25%"}/>
 
                   </Flex>
                   <Flex flexDirection={check?"row-reverse":"column"} mt="5%">
