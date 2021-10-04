@@ -4,7 +4,7 @@ import {Text ,Box, useColorModeValue,useMediaQuery , Image, Flex, Divider, LinkB
 import Typewriter from 'typewriter-effect';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-
+import Faq from "./Faq"
 
 function Home(props) {
   const  textColor = useColorModeValue("gray.700","gray.100");
@@ -13,6 +13,7 @@ function Home(props) {
 
     return (
       <>
+      <Faq />
         <div>
             
           <Box ml="5%">
