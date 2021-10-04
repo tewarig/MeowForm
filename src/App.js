@@ -1,16 +1,14 @@
-import react from 'react';
+import React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
-import Index from './pages/Index';
-
-
+import Index from "./pages/Index";
+import "./App.css";
 
 function App() {
-  return (
-    <ChakraProvider>
-         
-           <Index> </Index>
-   </ChakraProvider>
-  );
+	return (
+		<ChakraProvider>
+			<Index />
+		</ChakraProvider>
+	);
 }
 
 export default App;
