@@ -122,6 +122,9 @@ This project is licensed under the MIT License - see the [`LICENSE`](LICENSE) fi
 ## 🦄 Deploy
 
 <a href="https://vercel.com/new/project?template=https://github.com/tewarig/MeowForm">
+<img src="./MeowForm Badge Final.svg" height="37.5px" />
+</a>
+<a href="https://vercel.com/new/project?template=https://github.com/tewarig/MeowForm">
 <img src="https://vercel.com/button" height="37.5px" />
 </a>
 <a href="https://app.netlify.com/start/deploy?repository=https://github.com/tewarig/MeowForm">
