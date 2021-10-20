@@ -1,10 +1,10 @@
 import React from 'react';
 import {Button, IconButton} from "@chakra-ui/button";
 import {Avatar }from '@chakra-ui/react';
-import { VStack,Flex ,Heading, Spacer , Box , Text  , Divider} from "@chakra-ui/layout";
+import { VStack,Flex, Spacer , Box , Text  , Divider} from "@chakra-ui/layout";
 import {useMediaQuery} from "@chakra-ui/react";
 import {Tooltip } from "@chakra-ui/react";
-import  { FaSun , FaMoon, FaGithub, FaUser, FaList} from "react-icons/fa";
+import  { FaSun , FaMoon, FaGithub, FaList} from "react-icons/fa";
 import { useColorMode ,useColorModeValue } from '@chakra-ui/color-mode';
 import {Link} from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -13,11 +13,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import {
     Drawer,
     DrawerBody,
-    DrawerFooter,
     DrawerHeader,
     DrawerOverlay,
     DrawerContent,
-    DrawerCloseButton,
     useDisclosure,
     Menu,
     MenuButton,
