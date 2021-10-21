@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Bounce from "react-reveal/Bounce";
 import Flip from "react-reveal/Flip";
 import Fade from "react-reveal/Fade";
+import Reviews from "../../comp/Comp/Review";
 import {
 	Text,
 	Box,
@@ -210,6 +211,9 @@ function Home(props) {
 				</Flip>
 				<h1 margin='15%'> Meow Form in action</h1>
 			</Box>
+			<div className="Reviews">
+				<Reviews />
+			</div>
 		</>
 	);
 }
