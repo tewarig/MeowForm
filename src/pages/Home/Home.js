@@ -4,6 +4,8 @@ import Bounce from "react-reveal/Bounce";
 import Flip from "react-reveal/Flip";
 import Fade from "react-reveal/Fade";
 import Reviews from "../../comp/Comp/Review";
+import Faq from "../../comp/Comp/Faq";
+
 import {
 	Text,
 	Box,
@@ -213,6 +215,9 @@ function Home(props) {
 			</Box>
 			<div className="Reviews">
 				<Reviews />
+			</div>
+			<div className="faq">
+				<Faq />
 			</div>
 		</>
 	);
