@@ -99,10 +99,10 @@ function Home(props) {
 						lazyLoad={true}
 						position={check ? "absolute" : "static"}
 						src='https://res.cloudinary.com/dd0mtkqbr/image/upload/v1629015408/kitekat_ezvxgy.png'
-						width={check ? "30%" : "40%"}
-						height={check ? "13%" : "80%"}
+						width={check ? "24%" : "40%"}
+						height={check ? "8%" : "80%"}
 						mt={check ? "-20%" : "5%"}
-						ml={check ? "-20%" : "28%"}
+						ml={check ? "-15%" : "28%"}
 						transform={check ? "rotate(60deg)" : ""}
 						opacity={check ? "0.9" : "1"}></Image>
 				</Box>
@@ -214,7 +214,7 @@ function Home(props) {
 				<h1 margin='15%'> Meow Form in action</h1>
 			</Box>
 			<div className="Reviews">
-				<Reviews />
+				{/* <Reviews /> */}
 			</div>
 			<div className="faq">
 				<Faq />
