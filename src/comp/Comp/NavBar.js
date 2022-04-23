@@ -134,7 +134,7 @@ function Navbar(props) {
                          <DrawerHeader align="center"> 
                           
                          <Text   bgGradient="linear(to-l, #ec9f05 ,#ff4e00)" bgClip="text"
-                          fontSize="8xl"
+                          fontSize={useDisclosure ? "5xl" : "3xl"}
                           fontWeight="extrabold"
                           >
                            MeowForm
